@@ -25,6 +25,7 @@ app.use(cookieParser());
 app.use(expressValidator());
 sessionMangementConfig(app, db);
 
+
 app.use(cors());
 app.use('/api', router);
 app.use(express.static(path.resolve(__dirname, '../static')));
