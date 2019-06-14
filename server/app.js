@@ -25,8 +25,13 @@ app.use(cookieParser());
 app.use(expressValidator());
 sessionMangementConfig(app, db);
 
+const corsOptions = {
+  origin:['http://localhost:8080'],
+  methods:['GET','POST'],
+  credentials: true
+};
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use('/api', router);
 app.use(express.static(path.resolve(__dirname, '../static')));
 

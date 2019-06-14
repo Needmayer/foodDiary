@@ -15,7 +15,8 @@ Vue.use(Vuetify)
 
 // Setup axios to be available globally through Vue
 Vue.axios = Vue.prototype.$http = axios.create({
-  baseURL: 'http://localhost:3000/api'
+  baseURL: 'http://localhost:3000/api',
+  withCredentials: true
 })
 
 /* eslint-disable no-new */
@@ -26,3 +27,5 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
+store.dispatch('isLogged')

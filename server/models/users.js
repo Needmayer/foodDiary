@@ -1,7 +1,6 @@
 import bcrypt from 'bcrypt';
 import mongoose from 'mongoose';
 
-
 let userSchema = mongoose.Schema({
     email: {
         type: String,
@@ -19,27 +18,25 @@ let userSchema = mongoose.Schema({
     }
 });
 
-// userSchema.pre("save", function(next){
-// 
-//     bcrypt.hash(this.password, 5, (err, hash) => {
-//         if(err){
-//             next(err);
-//             return;
-//         }
-//         this.password = hash;
-//         next();
-//     });
-// });
+userSchema.pre("save", function(next){
+  bcrypt.hash(this.password, 8, (err, hash) => {
+    if(err){
+        next(err);
+        return;
+    }
+    this.password = hash;
+    next();
+  });
+});
 
-// userSchema.methods.passwordIsValid = function(password, callback){
-//     bcrypt.compare(password, this.password, function(err, result){    
-//         if(err){
-//             callback(false);
-//             return;
-//         }
-//         callback(null, result);
-//     });
-// };
+userSchema.methods.passwordIsValid = async function (password) {
+    try {
+        return await bcrypt.compare(password, this.password);
+    } catch (err) {
+        throw err;
+    }
+};
 
 const User = mongoose.model('User', userSchema)
+
 export default User
