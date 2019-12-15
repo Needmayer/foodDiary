@@ -100,7 +100,7 @@ export default {
   },
   methods: {
     login: function() {
-      this.$router.push({ path: "/login" });
+      this.$router.push({ path: "/login", name: "Login" });
     },
     signUp: function() {
       this.$router.push({ path: "/signup" });

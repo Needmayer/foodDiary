@@ -26,7 +26,7 @@ const actions = {
     await Vue.axios.get("/login", { withCredentials: true, crossdomain: true })
       .then((resp) => {
         let data = resp.data;
-        if (data && data._id.length > 0) {
+        if (data && data._id && data._id.length > 0) {
           const userInfo = {
             userId: data._id,
             email: data.email,

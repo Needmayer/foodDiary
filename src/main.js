@@ -16,20 +16,20 @@ Vue.use(Vuetify);
 
 // Setup axios to be available globally through Vue
 Vue.axios = Vue.prototype.$http = axios.create({
-  baseURL: "http://localhost:3000/api",
+  baseURL: `http://localhost:${process.env.PORT || 3000}/api`,
   withCredentials: true
 });
 
 store.dispatch("isLogged");
 
 // redirect to login page if not logged
-router.beforeEach((to, from, next) => {
-  if (!store.getters.isLoggedIn) {
-    next({ name: "Login" });
-  } else {
-    next();
-  }
-});
+// router.beforeEach((to, from, next) => {
+//   if (!store.getters.isLoggedIn) {
+//     next({ name: "Login" });
+//   } else {
+//     next();
+//   }
+// });
 
 /* eslint-disable no-new */
 new Vue({
