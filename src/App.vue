@@ -4,7 +4,6 @@
     <v-navigation-drawer
     v-if="isLoggedIn"
     v-model="drawer"
-    :clipped-left="clipped" flat
     app>
       <v-list dense>
         <v-list-item @click="home">
