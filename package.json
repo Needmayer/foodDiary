@@ -7,8 +7,8 @@
   "scripts": {
     "prestart": "node_modules/.bin/babel-node server/startMessage.js",
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "startdev": "node_modules/.bin/babel-node server/app.js",
-    "start": "npm run lint & nodemon ./server/app.js --exec node_modules/.bin/babel-node",
+    "start": "node_modules/.bin/babel-node server/app.js",
+    "startdev": "npm run lint & nodemon ./server/app.js --exec node_modules/.bin/babel-node",
     "lint": "eslint --ext .js,.vue src",
     "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.conf.js"
   },
