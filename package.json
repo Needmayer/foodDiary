@@ -7,7 +7,8 @@
   "scripts": {
     "prestart": "node_modules/.bin/babel-node server/startMessage.js",
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run lint & nodemon ./server/app.js --exec node_modules/.bin/babel-node",
+    "start": "node_modules/.bin/babel-node server/app.js",
+    "startdev": "npm run lint & nodemon ./server/app.js --exec node_modules/.bin/babel-node",
     "lint": "eslint --ext .js,.vue src",
     "build": "NODE_ENV=production webpack --config build/webpack.prod.conf.js"
   },
@@ -37,6 +38,7 @@
     "file-loader": "^1.1.4",
     "mongoose": "^5.5.11",
     "morgan": "^1.9.1",
+    "open": "^6.3.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vuetify": "^2.1.10",
@@ -61,7 +63,6 @@
     "html-webpack-plugin": "^2.30.1",
     "node-notifier": "^5.1.2",
     "nodemon": "^1.19.1",
-    "open": "^6.3.0",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",
     "portfinder": "^1.0.13",
