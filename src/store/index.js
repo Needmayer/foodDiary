@@ -1,12 +1,14 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-import user from './modules/user'
+import user from "./modules/user";
+import recipes from "./modules/recipes";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   modules: {
-    user
+    user,
+    recipes
   }
-})
+});

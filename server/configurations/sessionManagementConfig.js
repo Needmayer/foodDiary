@@ -7,11 +7,11 @@ export default function sessionManagementConfig(app, db) {
 
     session.Session.prototype.login = function (user) {
         const req = this.req;
-       // req.session.regenerate(function (err) {
-       //     if (err) {
-       //         console.log("session error", err);
-       //     }
-       // });
+        // req.session.regenerate(function (err) {
+        //     if (err) {
+        //         console.log("session error", err);
+        //     }
+        // });
         this.userInfo = user;
     };
 
@@ -26,7 +26,7 @@ export default function sessionManagementConfig(app, db) {
         }),
         secret: "secret",
         resave: false,
-        cookie: { maxAge: 8*60*60*1000, secure: false },
+        cookie: { maxAge: 8 * 60 * 60 * 1000, secure: false },
         saveUninitialized: false
     }));
 

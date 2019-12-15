@@ -15,18 +15,20 @@ let userSchema = mongoose.Schema({
     role: {
         type: Number,
         default: 0
-    }
+    },
+    recipeIds: [],
+    menu: {}
 });
 
-userSchema.pre("save", function(next){
-  bcrypt.hash(this.password, 8, (err, hash) => {
-    if(err){
-        next(err);
-        return;
-    }
-    this.password = hash;
-    next();
-  });
+userSchema.pre("save", function (next) {
+    bcrypt.hash(this.password, 8, (err, hash) => {
+        if (err) {
+            next(err);
+            return;
+        }
+        this.password = hash;
+        next();
+    });
 });
 
 userSchema.methods.passwordIsValid = async function (password) {
