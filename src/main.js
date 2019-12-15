@@ -16,7 +16,7 @@ Vue.use(Vuetify);
 
 // Setup axios to be available globally through Vue
 Vue.axios = Vue.prototype.$http = axios.create({
-  baseURL: `http://localhost:${process.env.PORT || 3000}/api`,
+  baseURL: `https://food4me.herokuapp.com:${process.env.PORT || 3000}/api`,
   withCredentials: true
 });
 
