@@ -27,7 +27,7 @@ app.use(expressValidator());
 sessionMangementConfig(app, db);
 
 const corsOptions = {
-  origin: ['http://localhost:8080'],
+  origin: [process.env.HOST + ':8080'],
   methods: ['GET', 'POST', 'PUT'],
   credentials: true
 };
